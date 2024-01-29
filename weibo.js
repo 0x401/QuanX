@@ -607,13 +607,13 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         let newItems = [];
         for (let item of obj.items) {
           if (item?.category === "feed") {
-            if (!isAd(item?.data)) {
+            //if (!isAd(item?.data)) {
               // 信息流推广
-              removeFeedAd(item?.data);
-            }else{
-              delete item.data;
+           //   removeFeedAd(item?.data);
+           // }else{
+           //   delete item.data;
     
-           }
+         //  }
             newItems.push(item);
           } else if (item?.category === "card") {
             // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词
