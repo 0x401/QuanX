@@ -611,7 +611,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 信息流推广
            //   removeFeedAd(item?.data);
            // }else{
-           //   delete item.data;
+             delete item.data;
     
          //  }
             newItems.push(item);
