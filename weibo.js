@@ -608,8 +608,6 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         for (let item of obj.items) {
           if (item?.category === "feed") {
             continue;
-          }
-            newItems.push(item);
           } else if (item?.category === "card") {
             // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词,101热门微博标题
             if ([19, 101, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
