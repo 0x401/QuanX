@@ -604,8 +604,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     // 搜索页信息流
     if (url.includes("container_timeline")) {
       if (obj?.items?.length > 0) {
-        let newItems = [];
-        obj.items = [items[0]];
+        obj.items = [obj.items];
       }
       if (obj?.loadedInfo) {
         delete obj?.loadedInfo;
@@ -632,7 +631,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             }
             if (payload?.items?.length > 0) {
 
-              payload.items = [payload[0]];
+              payload.items = [payload.items];
             }
           }
         }
