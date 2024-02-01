@@ -607,14 +607,8 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         let newItems = [];
         for (let item of obj.items) {
           if (item?.category === "feed") {
-            //if (!isAd(item?.data)) {
-              // 信息流推广
-           //   removeFeedAd(item?.data);
-           // }else{
-             //delete item.data;
-
             continue;
-         //  }
+          }
             newItems.push(item);
           } else if (item?.category === "card") {
             // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词,101热门微博标题
@@ -672,14 +666,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               let newItems = [];
               for (let item of payload.items) {
                 if (item?.category === "feed") {
-                  if (!isAd(item?.data)) {
-                    // 信息流推广
-                    removeFeedAd(item.data);
-                    newItems.push(item);
-                  }
+                  continue;
                 } else if (item?.category === "card") {
-                  // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词
-                  if ([19, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
+                  // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词,101热门微博标题
+                  if ([19, 101, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
                     continue;
                   } else {
                     newItems.push(item);
