@@ -621,6 +621,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             if ([19, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
             continue;           
             }
+            newItems.push(item);
           } else if (item?.category === "cell") {
             // 保留信息流分割线
             newItems.push(item);
