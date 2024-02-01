@@ -611,22 +611,23 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               // 信息流推广
            //   removeFeedAd(item?.data);
            // }else{
-             delete item.data;
-    
+             //delete item.data;
+
+            continue;
          //  }
             newItems.push(item);
           } else if (item?.category === "card") {
-            // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词,192 好看视频
-            if ([19, 118, 192, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
-            //continue;
-               delete item.data;             
+            // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词
+            if ([19, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
+            continue;           
             }
-            newItems.push(item);
           } else if (item?.category === "cell") {
             // 保留信息流分割线
             newItems.push(item);
           } else if (item?.category === "group") {
-            if (item?.items?.length > 0) {
+            if(item?.itemId.endsWith('video_card')){//好看视频
+              continue;
+            }else if (item?.items?.length > 0) {
               let newII = [];
               for (let ii of item.items) {
                 // 118横版广告图片 182热议话题 217错过了热词 247横版视频广告
