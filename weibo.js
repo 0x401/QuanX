@@ -605,39 +605,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     if (url.includes("container_timeline")) {
       if (obj?.items?.length > 0) {
         let newItems = [];
-        for (let item of obj.items) {
-          if (item?.category === "feed") {
-            continue;
-          } else if (item?.category === "card") {
-            // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词,101热门微博标题
-            if ([19, 101, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
-            continue;           
-            }
-            newItems.push(item);
-          } else if (item?.category === "cell") {
-            // 保留信息流分割线
-            newItems.push(item);
-          } else if (item?.category === "group") {
-            if(item?.itemId){//好看视频
-              if(item?.itemId.endsWith('video_card')){
-                continue;
-              }
-            }else if (item?.items?.length > 0) {
-              let newII = [];
-              for (let ii of item.items) {
-                // 118横版广告图片 182热议话题 217错过了热词 247横版视频广告
-                if ([118, 182, 217, 247]?.includes(ii?.data?.card_type)) {
-                  continue;
-                } else {
-                  newII.push(ii);
-                }
-              }
-              item.items = newII;
-            }
-            newItems.push(item);
-          }
-        }
-        obj.items = newItems;
+        obj.items = [items[0]];
       }
       if (obj?.loadedInfo) {
         delete obj?.loadedInfo;
@@ -663,41 +631,8 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               }
             }
             if (payload?.items?.length > 0) {
-              let newItems = [];
-              for (let item of payload.items) {
-                if (item?.category === "feed") {
-                  continue;
-                } else if (item?.category === "card") {
-                  // 19热议等tab 118横版广告图片 206,249横版视频广告 208实况热聊 217错过了热词
-                  if ([19,101, 118, 206, 208, 217, 249]?.includes(item?.data?.card_type)) {
-                    continue;
-                  } else {
-                    newItems.push(item);
-                  }
-                } else if (item?.category === "cell") {
-                  // 保留信息流分割线
-                  newItems.push(item);
-                } else if (item?.category === "group") {
-                  if(item?.itemId){//好看视频
-                    if(item?.itemId.endsWith('video_card')){
-                      continue;
-                      }
-                    }else if (item?.items?.length > 0) {
-                    let newII = [];
-                    for (let ii of item.items) {
-                      // 118横版广告图片 182热议话题 217错过了热词 247横版视频广告
-                      if ([118, 182, 217, 247]?.includes(ii?.data?.card_type)) {
-                        continue;
-                      } else {
-                        newII.push(ii);
-                      }
-                    }
-                    item.items = newII;
-                  }
-                  newItems.push(item);
-                }
-              }
-              payload.items = newItems;
+
+              payload.items = [payload[0]];
             }
           }
         }
