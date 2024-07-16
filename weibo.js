@@ -604,11 +604,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     // 搜索页信息流
     if (url.includes("container_timeline")) {
       if (obj?.items?.length > 0) {
-        obj.items = [obj.items];
+        //obj.items = [obj.items];
+        obj.items.length = 3;//舍去除热搜的所有内容
+
       }
       if (obj?.loadedInfo) {
         delete obj?.loadedInfo;
       }
+      
     } else if (url.includes("finder")) {
       let channels = obj.channelInfo.channels;
       if (channels?.length > 0) {
