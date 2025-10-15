@@ -9,7 +9,7 @@ if (url.includes("/proteus/api/config/global/app")) {
   }
 }
 
-if (url.includes("/ads/v3/type/2/items") || url.includes("/genesis/openApi/post/recommend/help")) { 
+if (url.includes("/ads/v3/type/") || url.includes("/genesis/openApi/post/recommend/help")) { 
   #删除首页广告社区用户贴
   if(obj?.result){
     obj.result = []
