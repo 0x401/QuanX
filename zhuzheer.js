@@ -16,7 +16,7 @@ else if (url.includes("/ads/v3/type/") || url.includes("/genesis/openApi/post/re
 }
 else if (url.includes("/jtouch/api/msg/v2/home")){
   if(obj?.result?.latest){
-    obj.result.latest = obj.result.latest.filter((item) => item.groupType = 1);
+    obj.result.latest = obj.result.latest.filter((item) => item.groupType = 999);
   }
 }
 console.log(obj)
