@@ -8,8 +8,7 @@ if (url.includes("/proteus/api/config/global/app")) {
     delete obj.result.aiBot;
   }
 }
-
-if (url.includes("/ads/v3/type/") || url.includes("/genesis/openApi/post/recommend/help")) { 
+else if (url.includes("/ads/v3/type/") || url.includes("/genesis/openApi/post/recommend/help")) { 
   #删除首页广告社区用户贴
   if(obj?.result){
     obj.result = []
