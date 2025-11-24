@@ -8,7 +8,7 @@ if (url.includes("/api/news/indexv2/iphone/")) {
         obj.data.list.forEach(l => {
             if(l?.feedContent?.flag != 2){
             if (l?.feedContent?.content) {
-                l.feedContent.content = l.feedContent.content.replace(/(<div class='tougao-user' style='display:none;'>.*?<\/div>|<p class=\\"ad-tips\\">.*?<\/p>|IT\s?之家[^，。：]*[，。：])/g, "")
+                l.feedContent.content = l.feedContent.content.replace(/(<div class='tougao-user'[^>]*>([\s\S]*)<\/div>|<p class="ad-tips"[^>]*>([\s\S]*)<\/p>|IT\s?之家[^，。：]*[，。：])/g, "")
             }
             newList.push(l)}
         })
