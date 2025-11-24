@@ -6,7 +6,7 @@ if (url.includes("/api/news/indexv2/iphone/")) {
     if (obj?.data?.list) {
         obj.data.list.forEach(l => {
             if (l?.feedContent?.content) {
-                l.feedContent.content = l.feedContent.content.replace(/IT之家[^，。：]*[，。：]/g, "")
+                l.feedContent.content = l.feedContent.content.replace(/(IT之家[^，。：]*[，。：]|<p class=\\"ad-tips\\">.*?<\/p>)/g, "")
             }
         })
     }
