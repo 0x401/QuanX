@@ -1,0 +1,9 @@
+#!name=IT之家
+#!desc=修改内容
+
+[MITM]
+hostname = www.ithome.com
+[Header Rewrite]
+^https:\/\/www\.ithome\.com\/0\/.* header-del If-Modified-Since
+[Script]
+ithome = type=http-response,pattern=^https:\/\/www\.ithome\.com\/0\/.*,requires-body=1,max-size=0,script-path=ithome.com.js
