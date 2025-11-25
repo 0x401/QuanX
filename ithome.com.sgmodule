@@ -6,4 +6,4 @@ hostname = www.ithome.com
 [Header Rewrite]
 ^https:\/\/www\.ithome\.com\/0\/.* header-del If-Modified-Since
 [Script]
-ithome = type=http-response,pattern=^https:\/\/www\.ithome\.com\/0\/.*,requires-body=1,max-size=0,script-path=ithome.com.js
+ithome = type=http-response,pattern=^https:\/\/www\.ithome\.com\/0\/.*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/0x401/QuanX/refs/heads/main/ithome.com.js
