@@ -23,6 +23,13 @@ if (url.includes("/api/news/indexv2/iphone/")) {
     });
     obj.data.list = newList;
   }
+} else if (url.includes("/api/news/getdetail/")) {
+  if (obj?.data?.content) {
+    obj.data.content = obj.data.content.replace(
+            /(<div class='tougao-user'[^>]*>([\s\S]*)<\/div>|<p class="ad-tips"[^>]*>([\s\S]*)<\/p>|IT\s?之家[^，。：]*[，。：])/g,
+            "",
+          );
+  }
 }
 
 $done({
