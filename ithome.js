@@ -17,6 +17,9 @@ if (url.includes("/api/news/indexv2/iphone/")) {
       //去掉新闻内容里无用的信息
       if (l?.feedContent?.flag != 2) {
         if (l?.feedContent?.content) {
+          
+          //去掉有推广链接的文章
+          if(l.feedContent.content.includes("jd.com") ||l.feedContent.content.includes("taobao.com")||l.feedContent.content.includes("tmall.com")) return;
           l.feedContent.content = l.feedContent.content.replace(
             /(<div class='tougao-user'[^>]*>([\s\S]*)<\/div>|<p class="ad-tips"[^>]*>([\s\S]*)<\/p>|IT\s?之家[^，。：]*[，。：])/g,
             "",
